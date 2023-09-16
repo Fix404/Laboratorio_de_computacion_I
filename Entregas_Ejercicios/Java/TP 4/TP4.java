@@ -19,7 +19,6 @@ public class TP4 {
         System.out.println("Ingrese un nombre: ");
         name=scan.nextLine();
         System.out.println("El nombre es: "+name);
-        scan.nextLine();
 
         // Consigna 3 //
 
@@ -33,10 +32,10 @@ public class TP4 {
 
         // Consigna 4 //
 
-        float tempC, tempF;
+        double tempC, tempF;
         System.out.println("Introduzca una temperatura en grados Celsius: ");
-        tempC=scan.nextFloat();
-        tempF=(tempC*9/5)+32;
+        tempC=scan.nextDouble();
+        tempF=(tempC*9.0/5)+32;
         System.out.println("La temperatura en grados Fahrenheit es de "+tempF);
         scan.nextLine();
 
@@ -114,7 +113,7 @@ public class TP4 {
         System.out.println(Math.floor(N/10000)+" "+Math.floor(N/1000));
         System.out.println(Math.floor(N/10000)+" "+Math.floor(N/1000)+" "+Math.floor(N/100));
         System.out.println(Math.floor(N/10000)+" "+Math.floor(N/1000)+" "+Math.floor(N/100)+" "+Math.floor(N/10));
-        System.out.println(Math.floor(N/10000)+" "+Math.floor(N/1000)+" "+Math.floor(N/100)+" "+Math.floor(N/10)+" "+(N-Math.floor(N/10000)-Math.floor(N/1000)-Math.floor(N/100)-Math.floor(N/10)));
+        System.out.println(Math.floor(N/10000)+" "+Math.floor(N/1000)+" "+Math.floor(N/100)+" "+Math.floor(N/10)+" "+(N));
         scan.nextLine();
 
         // Consigna 12 //
@@ -123,7 +122,7 @@ public class TP4 {
         System.out.println("Introduzca un número entero de cinco cifras: ");
         N_1=scan.nextInt();
         System.out.println("Las cifras del número introducido en orden descendente son: ");
-        System.out.println(Math.floor(N_1/10000)+" "+Math.floor(N_1/1000)+" "+Math.floor(N_1/100)+" "+Math.floor(N_1/10)+" "+(N_1-Math.floor(N_1/10000)-Math.floor(N_1/1000)-Math.floor(N_1/100)-Math.floor(N_1/10)));
+        System.out.println(Math.floor(N_1/10000)+" "+Math.floor(N_1/1000)+" "+Math.floor(N_1/100)+" "+Math.floor(N_1/10)+" "+(N_1));
         System.out.println(Math.floor(N_1/10000)+" "+Math.floor(N_1/1000)+" "+Math.floor(N_1/100)+" "+Math.floor(N_1/10));
         System.out.println(Math.floor(N_1/10000)+" "+Math.floor(N_1/1000)+" "+Math.floor(N_1/100));
         System.out.println(Math.floor(N_1/10000)+" "+Math.floor(N_1/1000));
@@ -132,7 +131,7 @@ public class TP4 {
 
         // Consigna 13 //
 
-        double dia, mes, anno, suma, suerte;
+        double dia, mes, anno, suma, suerte, miles, cientos_2, decenas_2, unidades_2;
         System.out.println("Introduzca su fecha de nacimiento como sigue: ");
         System.out.println("Día: ");
         dia=scan.nextDouble();
@@ -141,7 +140,12 @@ public class TP4 {
         System.out.println("Año: ");
         anno=scan.nextDouble();
         suma=dia+mes+anno;
-        suerte=Math.floor(suma/1000)+Math.floor(suma/100)+Math.floor(suma/10)+Math.floor(suma-(Math.floor(suma/1000)+Math.floor(suma/100)+Math.floor(suma/10)));
+        miles=suma/1000;
+        cientos_2=(suma-miles*1000)/100;
+        decenas_2=(suma-miles*1000-cientos_2*100)/10;
+        unidades_2=(suma-miles*1000-cientos_2*100-decenas_2*10);
+        suerte=Math.floor(miles+cientos_2+decenas_2+unidades_2);
+
         System.out.println("Su número de la suerte es "+suerte);
         scan.nextLine();
 
